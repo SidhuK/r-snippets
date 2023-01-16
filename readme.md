@@ -63,6 +63,4 @@ You are welcome to contribute to this project. Please fork the repo and submit a
 How to create a snippet:
 Check out the VSCode documentation on snippets here: https://code.visualstudio.com/docs/editor/userdefinedsnippets
 
-For a detailed explanation of how to create a snippet, check out this blog post: https://www.mattbutton.com/2019/01/02/creating-a-vscode-snippet-for-r/
-
 Additionally, the json files in the snippets.json have a brief explanation of how to create a specific snippet.
