@@ -1,6 +1,6 @@
 # VSCode Snippets for R and R Markdown
 
-This is a collection of snippets for R and R Markdown. It is a work in progress and I will be adding more as I go.
+This is a collection of [snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets) for R and R Markdown. It is a work in progress and I will be adding more as I go.
 
 ## R Snippets
 
