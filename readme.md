@@ -52,6 +52,8 @@ Snippets included:
 
 and a few more.
 
+Most of these have been tested and work as expected, however there could be some bugs and syntax errors, so please let me know if you find any.
+
 Some of these snippets might require tweaking for your specific use case, and a lot of them are just a starting point, so further customization is required.
 
 Tidyverse is used in most of the snippets, so you will need to have the tidyverse package installed and loaded.
