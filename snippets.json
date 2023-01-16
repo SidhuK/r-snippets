@@ -1,0 +1,438 @@
+{
+  // Place your snippets for r here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+
+  "TidyVerse Import": {
+    "scope": "r",
+    "prefix": "import tidyverse",
+    "body": ["library(tidyverse)"],
+    "description": "Attach Tidyverse"
+  },
+
+  "TidyModels Import": {
+    "scope": "r",
+    "prefix": "import tidymodels",
+    "body": ["library(tidymodels)"],
+    "description": "Attach TidyModels"
+  },
+
+  "GGPlot: Make A Barplot": {
+    "scope": "r",
+    "prefix": "ggplot: barplot",
+    "body": [
+      "ggplot(data = ${1:Data}, aes(x = ${2:XAxis}, y = ${3:YAxis})) + goem_bar() + theme_minimal()"
+    ],
+    "description": "GGplot Barplot"
+  },
+
+  "GGPlot: Geompoint": {
+    "scope": "r",
+    "prefix": "ggplot: point",
+    "body": [
+      "ggplot(data = ${1:Data}, aes(x = ${2:XAxis}, y = ${3:YAxis})) + geom_point() + theme_minimal()"
+    ],
+    "description": "GGplot Points"
+  },
+
+  "GGplot: Geomline": {
+    "scope": "r",
+    "prefix": "ggplot: line",
+    "body": [
+      "ggplot(data = ${1:Data}, aes(x = ${2:XAxis}, y = ${3:YAxis})) + geom_line() + theme_minimal()"
+    ],
+    "description": "GGplot Line"
+  },
+
+  "GGplot: Geomboxplot": {
+    "scope": "r",
+    "prefix": "ggplot: boxplot",
+    "body": [
+      "ggplot(data = ${1:Data}, aes(x = ${2:XAxis}, y = ${3:YAxis})) + geom_boxplot() + theme_minimal()"
+    ],
+    "description": "GGplot Boxplot"
+  },
+
+  "GGplot: Geomhistogram": {
+    "scope": "r",
+    "prefix": "ggplot: histogram",
+    "body": [
+      "ggplot(data = ${1:Data}, aes(x = ${2:XAxis}, y = ${3:YAxis})) + geom_histogram() + theme_minimal()"
+    ],
+    "description": "GGplot Histogram"
+  },
+
+  "Anova: One Way": {
+    "scope": "r",
+    "prefix": "anova: one way",
+    "body": ["aov(${1:YAxis} ~ ${2:XAxis}, data = ${3:Data})"],
+    "description": "One Way Anova"
+  },
+
+  "Anova: Two Way": {
+    "scope": "r",
+    "prefix": "anova: two way",
+    "body": ["aov(${1:YAxis} ~ ${2:XAxis} + ${3:ZAxis}, data = ${4:Data})"],
+    "description": "Two Way Anova"
+  },
+
+  "Tidy: Mutate": {
+    "scope": "r",
+    "prefix": "tidy: mutate",
+    "body": [
+      "${1:Data} |> mutate(${2:NewColumn} = ${3:Function}(${4:Column}))"
+    ],
+    "description": "Tidy Mutate"
+  },
+
+  "Create a Function:": {
+    "scope": "r",
+    "prefix": "function",
+    "body": [
+      "${1:FunctionName} <- function(${2:Argument}) {",
+      "\t${3:FunctionBody}",
+      "}"
+    ],
+    "description": "Create a Function"
+  },
+
+  "Tidy: Filter": {
+    "scope": "r",
+    "prefix": "tidy: filter",
+    "body": ["${1:Data} |> filter(${2:Condition})"],
+    "description": "Tidy Filter"
+  },
+
+  "Tidy: Select": {
+    "scope": "r",
+    "prefix": "tidy: select",
+    "body": ["${1:Data} |> select(${2:Column})"],
+    "description": "Tidy Select"
+  },
+
+  "Tidy: Group By": {
+    "scope": "r",
+    "prefix": "tidy: group by",
+    "body": ["${1:Data} |> group_by(${2:Column})"],
+    "description": "Tidy Group By"
+  },
+
+  "Tidy: Summarize": {
+    "scope": "r",
+    "prefix": "tidy: summarize",
+    "body": ["${1:Data} |> summarize(${2:Column})"],
+    "description": "Tidy Summarize"
+  },
+
+  "Tidy: Arrange": {
+    "scope": "r",
+    "prefix": "tidy: arrange",
+    "body": ["${1:Data} |> arrange(${2:Column})"],
+    "description": "Tidy Arrange"
+  },
+
+  "Tidy: Groupby and Summarize:": {
+    "scope": "r",
+    "prefix": "tidy: groupby and summarize",
+    "body": [
+      "${1:Data} |> group_by(${2:Column}) |> summarize(${3:Column} = ${4:Function}(${5:Column}))"
+    ],
+    "description": "Tidy Groupby and Summarize"
+  },
+
+  "Tidy: Groupby and Filter:": {
+    "scope": "r",
+    "prefix": "tidy: groupby and filter",
+    "body": ["${1:Data} |> group_by(${2:Column}) |> filter(${3:Condition})"],
+    "description": "Tidy Groupby and Filter"
+  },
+
+  "Tidy: Groupby and Arrange:": {
+    "scope": "r",
+    "prefix": "tidy: groupby and arrange",
+    "body": ["${1:Data} |> group_by(${2:Column}) |> arrange(${3:Column})"],
+    "description": "Tidy Groupby and Arrange"
+  },
+
+  "Tidy: Groupby and Select:": {
+    "scope": "r",
+    "prefix": "tidy: groupby and select",
+    "body": ["${1:Data} |> group_by(${2:Column}) |> select(${3:Column})"],
+    "description": "Tidy Groupby and Select"
+  },
+
+  "Tidy: Groupby, Summarize, and Arrange:": {
+    "scope": "r",
+    "prefix": "tidy: groupby, summarize, and arrange",
+    "body": [
+      "${1:Data} |> group_by(${2:Column}) |> summarize(${3:Column} = ${4:Function}(${5:Column})) |> arrange(${6:Column})"
+    ],
+    "description": "Tidy Groupby, Summarize, and Arrange"
+  },
+
+  "Tidy: Groupby, Summarize, and Filter:": {
+    "scope": "r",
+    "prefix": "tidy: groupby, summarize, and filter",
+    "body": [
+      "${1:Data} |> group_by(${2:Column}) |> summarize(${3:Column} = ${4:Function}(${5:Column})) |> filter(${6:Condition})"
+    ],
+    "description": "Tidy Groupby, Summarize, and Filter"
+  },
+
+  "Chi Sq Test:": {
+    "scope": "r",
+    "prefix": "chi sq test",
+    "body": ["chisq.test(x = ${1:Data}, p = ${2:Proportion})"],
+    "description": "Chi Sq Test"
+  },
+
+  "Purr: Map": {
+    "scope": "r",
+    "prefix": "purr: map",
+    "body": ["map(${1:Data}, ${2:Function})"],
+    "description": "Purr Map"
+  },
+
+  "Purr: Map DF": {
+    "scope": "r",
+    "prefix": "purr: map df",
+    "body": ["map_df(${1:Data}, ${2:Function})"],
+    "description": "Purr Map DF"
+  },
+
+  "Tidy: Rename:": {
+    "scope": "r",
+    "prefix": "tidy: rename",
+    "body": ["${1:Data} |> rename(${2:NewColumn} = ${3:Column})"],
+    "description": "Tidy Rename"
+  },
+
+  "Tidy: Across:": {
+    "scope": "r",
+    "prefix": "tidy: across",
+    "body": ["${1:Data} |> mutate(across(${2:Column}, ${3:Function}))"],
+    "description": "Tidy Across"
+  },
+
+  "Tidy: Case_When:": {
+    "scope": "r",
+    "prefix": "tidy: case when",
+    "body": [
+      "${1:Data} |> mutate(${2:NewColumn} = case_when(${3:Condition} ~ ${4:Value}, ${5:Condition} ~ ${6:Value}))"
+    ],
+    "description": "Tidy Case_When"
+  },
+
+  "Tidy: Read_CSV:": {
+    "scope": "r",
+    "prefix": "tidy: read csv",
+    "body": ["${1:Data} <- read_csv(${2:File})"],
+    "description": "Tidy Read_CSV"
+  },
+
+  "Tidy: Read_TSV:": {
+    "scope": "r",
+    "prefix": "tidy: read tsv",
+    "body": ["${1:Data} <- read_tsv(${2:File})"],
+    "description": "Tidy Read_TSV"
+  },
+
+  "Tidy: Read_XLSX:": {
+    "scope": "r",
+    "prefix": "tidy: read xlsx",
+    "body": ["${1:Data} <- read_xlsx(${2:File})"],
+    "description": "Tidy Read_XLSX"
+  },
+
+  "Gsub: Replace": {
+    "scope": "r",
+    "prefix": "gsub: replace",
+    "body": ["gsub(${1:Pattern}, ${2:Replacement}, ${3:Text})"],
+    "description": "Gsub Replace"
+  },
+
+  "Grep: Search": {
+    "scope": "r",
+    "prefix": "gsub: search",
+    "body": ["grep(${1:Pattern}, ${2:Text})"],
+    "description": "GSub Search"
+  },
+
+  "Tidy: Pivot Longer:": {
+    "scope": "r",
+    "prefix": "tidy: pivot longer",
+    "body": [
+      "${1:Data} |> pivot_longer(${2:Column}, ${3:Name} = ${4:NewColumn}, ${5:Value} = ${6:NewColumn})"
+    ],
+    "description": "Tidy Pivot Longer"
+  },
+
+  "Tidy: Pivot Wider:": {
+    "scope": "r",
+    "prefix": "tidy: pivot wider",
+    "body": [
+      "${1:Data} |> pivot_wider(${2:Column}, ${3:Name} = ${4:NewColumn}, ${5:Value} = ${6:NewColumn})"
+    ],
+    "description": "Tidy Pivot Wider"
+  },
+  "Setwd: rstudioapi": {
+    "scope": "r",
+    "prefix": "setwd rstudioapi",
+    "body": [
+      "setwd(dirname(rstudioapi::getActiveDocumentContext()$path)) # write dollar sign path"
+    ],
+    "description": "Setwd"
+  },
+
+  "IFELSE:": {
+    "scope": "r",
+    "prefix": "ifelse",
+    "body": ["ifelse(${1:Condition}, ${2:True}, ${3:False})"],
+    "description": "IFELSE"
+  },
+
+  "Tidy: Pull:": {
+    "scope": "r",
+    "prefix": "tidy: pull",
+    "body": ["${1:Data} |> pull(${2:Column})"],
+    "description": "Tidy Pull"
+  },
+
+  "Tidy: Transmute:": {
+    "scope": "r",
+    "prefix": "tidy: transmute",
+    "body": ["${1:Data} |> transmute(${2:Column})"],
+    "description": "Tidy Transmute"
+  },
+
+  "Tidy: Left Join:": {
+    "scope": "r",
+    "prefix": "tidy: left join",
+    "body": ["${1:Data} |> left_join(${2:Data})"],
+    "description": "Tidy Left Join"
+  },
+
+  "Tidy: Right Join:": {
+    "scope": "r",
+    "prefix": "tidy: right join",
+    "body": ["${1:Data} |> right_join(${2:Data})"],
+    "description": "Tidy Right Join"
+  },
+
+  "Tidy: Full Join:": {
+    "scope": "r",
+    "prefix": "tidy: full join",
+    "body": ["${1:Data} |> full_join(${2:Data})"],
+    "description": "Tidy Full Join"
+  },
+
+  "Students T-Test:": {
+    "scope": "r",
+    "prefix": "students t-test",
+    "body": ["t.test(${1:Data})"],
+    "description": "Students T-Test"
+  },
+
+  "Shapiro's Test:": {
+    "scope": "r",
+    "prefix": "shapiro's test",
+    "body": ["shapiro.test(${1:Data})"],
+    "description": "Shapiro's Test"
+  },
+
+  "GGSave:": {
+    "scope": "r",
+    "prefix": "ggsave",
+    "body": [
+      "ggsave(${1:filename}, plot = ${2:Plot}, width = ${3:Width}, height = ${4:Height}, units = ${5:Units}, dpi = ${6:DPI})"
+    ],
+    "description": "GGSave"
+  },
+
+  "Purr: Walk:": {
+    "scope": "r",
+    "prefix": "purr: walk",
+    "body": ["walk(${1:Data}, ${2:Function})"],
+    "description": "Purr Walk"
+  },
+
+  "StringR: String Extract:": {
+    "scope": "r",
+    "prefix": "stringr: string extract",
+    "body": ["str_extract(${1:Text}, ${2:Pattern})"],
+    "description": "StringR String Extract"
+  },
+
+  "StringR: String Extract All:": {
+    "scope": "r",
+    "prefix": "stringr: string extract all",
+    "body": ["str_extract_all(${1:Text}, ${2:Pattern})"],
+    "description": "StringR String Extract All"
+  },
+
+  "StringR: String Replace:": {
+    "scope": "r",
+    "prefix": "stringr: string replace",
+    "body": ["str_replace(${1:Text}, ${2:Pattern}, ${3:Replacement})"],
+    "description": "StringR String Replace"
+  },
+
+  "StringR: String Replace All:": {
+    "scope": "r",
+    "prefix": "stringr: string replace all",
+    "body": ["str_replace_all(${1:Text}, ${2:Pattern}, ${3:Replacement})"],
+    "description": "StringR String Replace All"
+  },
+
+  "StringR: String Count:": {
+    "scope": "r",
+    "prefix": "stringr: string count",
+    "body": ["str_count(${1:Text}, ${2:Pattern})"],
+    "description": "StringR String Count"
+  },
+
+  "StringR: Str_Search:": {
+    "scope": "r",
+    "prefix": "stringr: str search",
+    "body": ["str_search(${1:Text}, ${2:Pattern})"],
+    "description": "StringR Str Search"
+  },
+
+  "GT: Create table:": {
+    "scope": "r",
+    "prefix": "gt: create table",
+    "body": ["gt::gt(${1:Data})"],
+    "description": "GT Create table"
+  },
+
+  "Random Normal Distribution:": {
+    "scope": "r",
+    "prefix": "random normal distribution",
+    "body": ["rnorm(${1:Mean}, ${2:Standard Deviation}, ${3:Size})"],
+    "description": "Random Normal Distribution"
+  },
+
+  "For Loop:": {
+    "scope": "r",
+    "prefix": "for loop",
+    "body": ["for (${1:i} in ${2:1}:${3:10}) {", "\t${4:Code}", "}"],
+    "description": "For Loop"
+  },
+
+  "While Loop:": {
+    "scope": "r",
+    "prefix": "while loop",
+    "body": ["while (${1:Condition}) {", "\t${2:Code}", "}"],
+    "description": "While Loop"
+  }
+}
