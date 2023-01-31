@@ -434,5 +434,63 @@
     "prefix": "while loop",
     "body": ["while (${1:Condition}) {", "\t${2:Code}", "}"],
     "description": "While Loop"
+  },
+
+  "TidyModels: Test Train Split": {
+    "scope": "r",
+    "prefix": "tidymodels: initial split",
+    "body": [
+      "set.seed(${1:Seed})",
+      "split_data <- initial_split(data = ${2:Data},prop = ${3:Prop},strata =  ${4:Strata},breaks =  ${5:Breaks},keep = ${6:Keep})",
+      "training_data <- training(split_data)",
+      "testing_data <- testing(split_data)",
+      "description": "TidyModels Test Train Split"
+    ]
+  },
+
+  "TidyModels: Cross Validation": {
+    "scope": "r",
+    "prefix": "tidymodels: cross validation",
+    "body": [
+      "set.seed(${1:Seed})",
+      "cv_data <- vfold_cv(data = ${2:Data},v = ${3:V},strata =  ${4:Strata},breaks =  ${5:Breaks},keep = ${6:Keep})",
+      "description: TidyModels Cross Validation"
+    ]
+  },
+
+  "TidyModels: Specify Model": {
+    "scope": "r",
+    "prefix": "tidymodels: specify model",
+    "body": ["model_spec <- ${1:Model}() %>% set_engine(${2:Engine})"],
+    "description": "TidyModels Specify Model"
+  },
+
+  "TidyModels: Fit Model": {
+    "scope": "r",
+    "prefix": "tidymodels: fit model",
+    "body": ["model_fit <- model_spec %>% fit(data = ${1:Data})"],
+    "description": "TidyModels Fit Model"
+  },
+
+  "TidyModels: Predict Model": {
+    "scope": "r",
+    "prefix": "tidymodels: predict model",
+    "body": ["model_predictions <- model_fit %>% predict(new_data = ${1:Data})"],
+    "description": "TidyModels Predict Model"
+  },
+
+  "TidyModels: Model Metrics": {
+    "scope": "r",
+    "prefix": "tidymodels: model metrics",
+    "body": ["model_metrics <- model_fit %>% metrics(data = ${1:Data})"],
+    "description": "TidyModels Model Metrics"
+  },
+
+  "TidyModels: Confusion Matrix - NOT TESTED": {
+    "scope": "r",
+    "prefix": "tidymodels: confusion matrix",
+    "body": ["confusion_matrix <- model_fit %>% conf_mat(data = ${1:Data})"],
+    "description": "TidyModels Confusion Matrix (untested)"
+  },
   }
 }
