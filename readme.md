@@ -1,5 +1,7 @@
 # VSCode Snippets for R and R Markdown
 
+### Just as a quick FYI these should also work for the new RStudio codium based IDE, [Positron](https://github.com/posit-dev/positron)
+
 This is a collection of [snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets) for R and R Markdown. It is a work in progress and I will be adding more as I go.
 
 ## R Snippets
