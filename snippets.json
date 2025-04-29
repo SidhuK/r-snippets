@@ -603,5 +603,454 @@
             ")"
         ],
         "description": "Creates a fully fledged sliderInput. For a more compact widget see '!sliderInput'"
-    }
+    },
+  
+  "Data.Table: Basic Import": {
+    "scope": "r",
+    "prefix": "data.table: import",
+    "body": ["library(data.table)"],
+    "description": "Import data.table for high-performance data manipulation"
+  },
+
+  "Data.Table: Read File": {
+    "scope": "r",
+    "prefix": "data.table: fread",
+    "body": ["${1:DT} <- fread(\"${2:file.csv}\", ${3:header = TRUE})"],
+    "description": "Fast reading of delimited files with data.table's fread"
+  },
+
+  "Data.Table: Set Keys": {
+    "scope": "r",
+    "prefix": "data.table: setkey",
+    "body": ["setkey(${1:DT}, ${2:keyColumn})"],
+    "description": "Set keys for a data.table for faster subsetting and joins"
+  },
+  
+  "Data.Table: Data.Table Syntax": {
+    "scope": "r",
+    "prefix": "data.table: dt syntax",
+    "body": ["${1:DT}[${2:i}, ${3:j}, by = ${4:by}]"],
+    "description": "Basic data.table syntax with i, j, by structure"
+  },
+
+  "ggplot2: Facet Grid": {
+    "scope": "r", 
+    "prefix": "ggplot: facet grid",
+    "body": ["+ facet_grid(${1:rows} ~ ${2:cols})"],
+    "description": "Add facet grid to ggplot"
+  },
+
+  "ggplot2: Facet Wrap": {
+    "scope": "r",
+    "prefix": "ggplot: facet wrap",
+    "body": ["+ facet_wrap(~ ${1:variable}, nrow = ${2:2}, ncol = ${3:2})"],
+    "description": "Add facet wrap to ggplot"
+  },
+
+  "ggplot2: Themes": {
+    "scope": "r",
+    "prefix": "ggplot: themes",
+    "body": ["+ theme_${1|bw,minimal,classic,dark,light,void,test|}()"],
+    "description": "Add a theme to a ggplot with dropdown options"
+  },
+
+  "ggplot2: Labs": {
+    "scope": "r",
+    "prefix": "ggplot: labs",
+    "body": ["+ labs(title = \"${1:Title}\", subtitle = \"${2:Subtitle}\", x = \"${3:X Label}\", y = \"${4:Y Label}\", caption = \"${5:Caption}\")"],
+    "description": "Add labels to a ggplot"
+  },
+
+  "ggplot2: Geom Smooth": {
+    "scope": "r",
+    "prefix": "ggplot: smooth",
+    "body": ["+ geom_smooth(method = \"${1|lm,loess,gam|}\", se = ${2|TRUE,FALSE|})"],
+    "description": "Add a smoother to a ggplot"
+  },
+
+  "ggplot2: Custom Theme": {
+    "scope": "r",
+    "prefix": "ggplot: custom theme",
+    "body": [
+      "+ theme(",
+      "  plot.title = element_text(size = ${1:16}, face = \"${2|bold,italic,plain|}\"),",
+      "  axis.title = element_text(size = ${3:12}),",
+      "  axis.text = element_text(size = ${4:10}),",
+      "  legend.position = \"${5|right,left,top,bottom,none|}\"",
+      ")"
+    ],
+    "description": "Add a custom theme to a ggplot"
+  },
+
+  "ggplot2: Scatterplot with Regression": {
+    "scope": "r",
+    "prefix": "ggplot: scatter with regression",
+    "body": [
+      "ggplot(${1:data}, aes(x = ${2:x}, y = ${3:y})) +",
+      "  geom_point(aes(color = ${4:group}), alpha = ${5:0.7}) +",
+      "  geom_smooth(method = \"lm\", se = TRUE) +",
+      "  theme_minimal() +",
+      "  labs(title = \"${6:Scatterplot with Linear Regression}\", x = \"${7:X Label}\", y = \"${8:Y Label}\")"
+    ],
+    "description": "Create a scatterplot with regression line"
+  },
+
+  "Tidyverse: Pipe Chain Template": {
+    "scope": "r",
+    "prefix": "tidyverse: pipe chain",
+    "body": [
+      "${1:data} |>",
+      "  filter(${2:filter_condition}) |>",
+      "  mutate(${3:new_var = transformation}) |>",
+      "  group_by(${4:group_var}) |>",
+      "  summarize(${5:summary_stats}) |>",
+      "  arrange(${6:arrangement})"
+    ],
+    "description": "Create a comprehensive tidyverse pipe chain"
+  },
+
+  "Tidyverse: Join Multiple Tables": {
+    "scope": "r",
+    "prefix": "tidyverse: join multiple",
+    "body": [
+      "${1:data1} |>",
+      "  left_join(${2:data2}, by = \"${3:key}\") |>",
+      "  left_join(${4:data3}, by = \"${5:key}\")"
+    ],
+    "description": "Join multiple tables using tidyverse"
+  },
+
+  "Tidyverse: Complete Cases": {
+    "scope": "r", 
+    "prefix": "tidyverse: drop_na",
+    "body": ["${1:data} |> drop_na(${2:columns})"],
+    "description": "Drop rows with NA values in specified columns"
+  },
+
+  "Linear Model with Summary": {
+    "scope": "r",
+    "prefix": "lm with summary",
+    "body": [
+      "${1:model} <- lm(${2:y} ~ ${3:x1 + x2}, data = ${4:data})",
+      "summary(${1:model})"
+    ],
+    "description": "Fit and summarize a linear model"
+  },
+
+  "Generalized Linear Model": {
+    "scope": "r", 
+    "prefix": "glm model",
+    "body": [
+      "${1:model} <- glm(${2:y} ~ ${3:x1 + x2}, data = ${4:data}, family = ${5|binomial(),poisson(),gaussian(),Gamma()|})",
+      "summary(${1:model})"
+    ],
+    "description": "Fit and summarize a generalized linear model with selectable family"
+  },
+
+  "Mixed Effects Model": {
+    "scope": "r",
+    "prefix": "lmer model",
+    "body": [
+      "${1:model} <- lmer(${2:y} ~ ${3:x1 + x2} + (1|${4:random_effect}), data = ${5:data})",
+      "summary(${1:model})"
+    ],
+    "description": "Fit and summarize a linear mixed effects model using lme4"
+  },
+
+  "Random Forest with randomForest": {
+    "scope": "r",
+    "prefix": "random forest",
+    "body": [
+      "${1:rf_model} <- randomForest(${2:y} ~ ., data = ${3:data}, ntree = ${4:500}, mtry = ${5:sqrt(ncol(data))}, importance = TRUE)",
+      "print(${1:rf_model})",
+      "varImpPlot(${1:rf_model})"
+    ],
+    "description": "Fit a random forest model and check variable importance"
+  },
+
+  "Exploratory Data Analysis Template": {
+    "scope": "r",
+    "prefix": "eda template",
+    "body": [
+      "# Basic summary",
+      "glimpse(${1:data})",
+      "summary(${1:data})",
+      "",
+      "# Check missing values",
+      "colSums(is.na(${1:data}))",
+      "",
+      "# Distribution of numeric variables",
+      "${1:data} |>",
+      "  select(where(is.numeric)) |>",
+      "  pivot_longer(everything(), names_to = \"variable\", values_to = \"value\") |>",
+      "  ggplot(aes(x = value)) +",
+      "    geom_histogram() +",
+      "    facet_wrap(~ variable, scales = \"free\") +",
+      "    theme_minimal()"
+    ],
+    "description": "Comprehensive exploratory data analysis template"
+  },
+
+  "Time Series Analysis with prophet": {
+    "scope": "r",
+    "prefix": "prophet time series",
+    "body": [
+      "# Prepare data in required format (ds and y columns)",
+      "${1:prophet_data} <- ${2:data} |>",
+      "  rename(ds = ${3:date_column}, y = ${4:value_column})",
+      "",
+      "# Fit prophet model",
+      "${5:model} <- prophet(${1:prophet_data})",
+      "",
+      "# Create future dataframe for predictions",
+      "${6:future} <- make_future_dataframe(${5:model}, periods = ${7:365})",
+      "",
+      "# Make predictions",
+      "${8:forecast} <- predict(${5:model}, ${6:future})",
+      "",
+      "# Plot result",
+      "plot(${5:model}, ${8:forecast}) +",
+      "  labs(title = \"${9:Time Series Forecast}\", x = \"${10:Date}\", y = \"${11:Value}\")"
+    ],
+    "description": "Time series forecasting with Prophet"
+  },
+
+  "Cross-Validation Template": {
+    "scope": "r",
+    "prefix": "cross validation",
+    "body": [
+      "# Setup cross-validation",
+      "set.seed(${1:123})",
+      "${2:cv_folds} <- vfold_cv(${3:data}, v = ${4:10}, strata = ${5:outcome_variable})",
+      "",
+      "# Create recipe",
+      "${6:recipe} <- recipe(${7:outcome} ~ ., data = ${3:data}) |>",
+      "  step_normalize(all_numeric_predictors()) |>",
+      "  step_dummy(all_nominal_predictors())",
+      "",
+      "# Define model",
+      "${8:model_spec} <- ${9|linear_reg,logistic_reg,rand_forest,boost_tree|}() |>",
+      "  set_engine(\"${10|glmnet,ranger,xgboost|}\") |>",
+      "  set_mode(\"${11|regression,classification|}\")",
+      "",
+      "# Create workflow",
+      "${12:workflow} <- workflow() |>",
+      "  add_recipe(${6:recipe}) |>",
+      "  add_model(${8:model_spec})",
+      "",
+      "# Fit and evaluate model",
+      "${13:cv_results} <- ${12:workflow} |>",
+      "  fit_resamples(",
+      "    resamples = ${2:cv_folds},",
+      "    metrics = metric_set(${14|rmse,mae,rsq,accuracy,roc_auc|}),",
+      "    control = control_resamples(save_pred = TRUE)",
+      "  )",
+      "",
+      "# Collect and display metrics",
+      "collect_metrics(${13:cv_results})"
+    ],
+    "description": "Comprehensive cross-validation workflow using tidymodels"
+  },
+
+  "R Markdown Report Template": {
+    "scope": "r",
+    "prefix": "rmarkdown template",
+    "body": [
+      "---",
+      "title: \"${1:Report Title}\"",
+      "author: \"${2:Author Name}\"",
+      "date: \"`r Sys.Date()`\"",
+      "output: ",
+      "  html_document:",
+      "    toc: true",
+      "    toc_float: true",
+      "    theme: ${3|cosmo,flatly,lumen,sandstone,simplex,yeti|}",
+      "    highlight: ${4|tango,pygments,kate,monochrome,espresso,zenburn,haddock|}",
+      "    code_folding: ${5|hide,show|}",
+      "---",
+      "",
+      "```{r setup, include=FALSE}",
+      "knitr::opts_chunk$set(",
+      "  echo = ${6|TRUE,FALSE|},",
+      "  warning = FALSE,",
+      "  message = FALSE,",
+      "  fig.width = 10,",
+      "  fig.height = 6,",
+      "  fig.align = \"center\"",
+      ")",
+      "```",
+      "",
+      "## ${7:Introduction}",
+      "",
+      "${8:Write your introduction here.}",
+      "",
+      "```{r load-packages}",
+      "library(tidyverse)",
+      "library(knitr)",
+      "library(kableExtra)",
+      "${9:# Load additional packages as needed}",
+      "```",
+      "",
+      "## ${10:Data Import and Cleaning}",
+      "",
+      "```{r data-import}",
+      "${11:# Import and clean data here}",
+      "```",
+      "",
+      "## ${12:Exploratory Data Analysis}",
+      "",
+      "```{r eda}",
+      "${13:# Exploratory data analysis code}",
+      "```",
+      "",
+      "## ${14:Analysis and Results}",
+      "",
+      "```{r analysis}",
+      "${15:# Analysis code}",
+      "```",
+      "",
+      "## ${16:Conclusions}",
+      "",
+      "${17:Write your conclusions here.}"
+    ],
+    "description": "Comprehensive R Markdown report template with sensible defaults"
+  },
+
+  "Advanced ggplot2 Theme Template": {
+    "scope": "r",
+    "prefix": "ggplot: publication theme",
+    "body": [
+      "theme_publication <- function(base_size = 12, base_family = \"\") {",
+      "  theme_minimal(base_size = base_size, base_family = base_family) +",
+      "  theme(",
+      "    panel.border = element_rect(color = \"grey70\", fill = NA, size = 0.5),",
+      "    panel.grid.major = element_line(color = \"grey85\", size = 0.25),",
+      "    panel.grid.minor = element_line(color = \"grey93\", size = 0.125),",
+      "    axis.title = element_text(size = rel(0.8), face = \"bold\"),",
+      "    axis.text = element_text(size = rel(0.7)),",
+      "    legend.title = element_text(size = rel(0.8), face = \"bold\"),",
+      "    legend.text = element_text(size = rel(0.7)),",
+      "    legend.position = \"bottom\",",
+      "    legend.key.size = unit(0.8, \"lines\"),",
+      "    plot.title = element_text(size = rel(1.2), face = \"bold\"),",
+      "    plot.subtitle = element_text(size = rel(0.8), face = \"italic\"),",
+      "    plot.caption = element_text(size = rel(0.6), hjust = 0),",
+      "    plot.margin = margin(10, 10, 10, 10)",
+      "  )",
+      "}",
+      "",
+      "# Usage example",
+      "# ggplot(...) + ... + theme_publication()"
+    ],
+    "description": "Custom publication-quality ggplot2 theme function"
+  },
+
+  "Interactive Plot with plotly": {
+    "scope": "r",
+    "prefix": "plotly interactive",
+    "body": [
+      "p <- ggplot(${1:data}, aes(x = ${2:x}, y = ${3:y}, color = ${4:color}, text = ${5:tooltip})) +",
+      "  geom_point() +",
+      "  theme_minimal() +",
+      "  labs(title = \"${6:Interactive Plot}\", x = \"${7:X Label}\", y = \"${8:Y Label}\")",
+      "",
+      "# Convert to interactive plotly object",
+      "plotly::ggplotly(p, tooltip = \"text\")"
+    ],
+    "description": "Create an interactive plot using ggplot2 and plotly"
+  },
+
+  "Parallel Processing Setup": {
+    "scope": "r",
+    "prefix": "parallel processing",
+    "body": [
+      "# Setup parallel processing",
+      "library(parallel)",
+      "library(doParallel)",
+      "",
+      "# Detect number of cores and set up cluster",
+      "n_cores <- detectCores() - 1  # Leave one core free",
+      "cl <- makeCluster(n_cores)",
+      "registerDoParallel(cl)",
+      "",
+      "# Your parallel code here, e.g., with foreach",
+      "${1:results} <- foreach(${2:i} = ${3:1:100}, .combine = '${4:rbind}', .packages = c('${5:tidyverse}')) %dopar% {",
+      "  ${6:# Your parallel operation here}",
+      "}",
+      "",
+      "# Stop the cluster when done",
+      "stopCluster(cl)"
+    ],
+    "description": "Setup parallel processing in R"
+  },
+
+  "Database Connection with DBI": {
+    "scope": "r",
+    "prefix": "database connection",
+    "body": [
+      "# Connect to database",
+      "con <- DBI::dbConnect(",
+      "  ${1|RMySQL::MySQL(),RPostgres::Postgres(),RSQLite::SQLite(),odbc::odbc()|}",
+      "  ${2:connection_parameters}",
+      ")",
+      "",
+      "# Query data",
+      "${3:result} <- DBI::dbGetQuery(con, \"${4:SELECT * FROM table WHERE condition}\")",
+      "",
+      "# Clean up connection when done",
+      "DBI::dbDisconnect(con)"
+    ],
+    "description": "Set up a database connection and query using DBI"
+  },
+
+  "Spatial Data with sf": {
+    "scope": "r",
+    "prefix": "spatial sf",
+    "body": [
+      "# Read spatial data",
+      "${1:spatial_data} <- sf::st_read(\"${2:file.shp}\")",
+      "",
+      "# Basic spatial operations",
+      "${3:transformed} <- ${1:spatial_data} |>",
+      "  sf::st_transform(${4:4326}) |>  # Transform to WGS84 coordinates",
+      "  filter(${5:condition})",
+      "",
+      "# Plot with ggplot2",
+      "ggplot() +",
+      "  geom_sf(data = ${3:transformed}, aes(fill = ${6:variable})) +",
+      "  scale_fill_viridis_c() +",
+      "  theme_minimal() +",
+      "  labs(title = \"${7:Spatial Data Visualization}\")"
+    ],
+    "description": "Work with spatial data using sf package"
+  },
+
+  "Text Mining with tidytext": {
+    "scope": "r",
+    "prefix": "text mining",
+    "body": [
+      "# Tokenize text",
+      "${1:tokens} <- ${2:data} |>",
+      "  unnest_tokens(word, ${3:text_column}) |>",
+      "  anti_join(stop_words) |>",
+      "  count(${4:document_id}, word, sort = TRUE)",
+      "",
+      "# Calculate TF-IDF",
+      "${5:tf_idf} <- ${1:tokens} |>",
+      "  bind_tf_idf(word, ${4:document_id}, n)",
+      "",
+      "# Find most important words by TF-IDF",
+      "${5:tf_idf} |>",
+      "  group_by(${4:document_id}) |>",
+      "  top_n(10, tf_idf) |>",
+      "  ungroup() |>",
+      "  ggplot(aes(reorder_within(word, tf_idf, ${4:document_id}), tf_idf, fill = ${4:document_id})) +",
+      "  geom_col(show.legend = FALSE) +",
+      "  facet_wrap(~ ${4:document_id}, scales = \"free_y\") +",
+      "  coord_flip() +",
+      "  scale_x_reordered() +",
+      "  labs(x = \"Word\", y = \"tf-idf\", title = \"Most important words by TF-IDF\")"
+    ],
+    "description": "Text mining workflow with tidytext"
   }
+}

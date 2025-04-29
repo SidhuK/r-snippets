@@ -1,68 +1,134 @@
-# VSCode Snippets for R and R Markdown
+# VSCode R Snippets Collection
 
-### Just as a quick FYI these should also work for the new RStudio codium based IDE, [Positron](https://github.com/posit-dev/positron)
+![R Language](https://img.shields.io/badge/R-v4.3%2B-blue)
+![Tidyverse](https://img.shields.io/badge/Tidyverse-Latest-blue)
+![VSCode](https://img.shields.io/badge/VSCode-Compatible-brightgreen)
+![License](https://img.shields.io/badge/license-Beerware-yellow)
 
-This is a collection of [snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets) for R and R Markdown. It is a work in progress and I will be adding more as I go.
+## Overview
 
-## R Snippets
+A professional collection of VSCode snippets for R and R Markdown, designed to accelerate your data science workflow. Supports the latest R 4.5.0 features and works with VS Code, [Positron](https://github.com/posit-dev/positron), and other modern R IDEs.
 
-Snippets included:
+> **Pro Tip**: These snippets also work in the new RStudio Codium-based IDE, [Positron](https://github.com/posit-dev/positron).
 
-- Loading packages
-- Creating a data frame
-- Creating a vector
-- Create a function
-- Create a for loop
-- Create a while loop
-- Create a if statement
-- Create a if else statement
-- Data frame summary
-- Data frame group summary, summary, arrange
-- ANOVA - one way and two way
-- Chi-Square testing
-- T-Test
-- Shapiro-Wilk test
-- Purr: Map
-- Purr: Map DF
-- GGplot: Basic bar chart
-- GGplot: Basic line chart
-- GGplot: Basic scatter plot
-- GGplot: Basic box plot
-- GGplot: Basic histogram
-- GGSave: Save plot to file
-- Dplyr: Filter
-- Dplyr: Select
-- Dplyr: Mutate
-- Dplyr: Arrange
-- Dplyr: Group by
-- Dplyr: Summarise
-- Dplyr: Join
-- Dplyr: Left Join
-- Dplyr: Right Join
-- Dplyr: Full Join
-- Case when
-- Case when with multiple conditions
-- ReadR: Read CSV
-- ReadR: Read Excel
-- ReadR: Read TSV
-- Set working directory
-- StringR: Extract
-- StringR: Replace
-- StringR: Match
-- StringR: Extract All
-- Create a normal distribution
+## Installation
 
-and a few more.
+1. In VS Code, go to `Code -> Preferences -> User Snippets`
+2. Select `r.json` (for R snippets) or `markdown.json` (for R Markdown)
+3. Copy and paste the snippets from `snippets.json` in this repository
 
-Most of these have been tested and work as expected, however there could be some bugs and syntax errors, so please let me know if you find any.
+## Featured Snippets
 
-Some of these snippets might require tweaking for your specific use case, and a lot of them are just a starting point, so further customization is required.
+This collection includes **100+** powerful snippets covering the entire data science workflow:
 
-Tidyverse is used in most of the snippets, so you will need to have the tidyverse package installed and loaded.
+### Data Import & Manipulation
 
-You are welcome to contribute to this project. Please fork the repo and submit a pull request. I will review and merge as appropriate.
+- Modern tidyverse operations (`|>` pipe operator)
+- High-performance data.table operations
+- Database connections (MySQL, PostgreSQL, SQLite)
+- Spatial data handling with sf
 
-How to create a snippet:
-Check out the VSCode documentation on snippets here: https://code.visualstudio.com/docs/editor/userdefinedsnippets
+### Visualization
 
-Additionally, the json files in the snippets.json have a brief explanation of how to create a specific snippet.
+- Complete ggplot2 templates with themes and facets
+- Publication-quality plot themes
+- Interactive visualization with plotly
+- Customizable chart parameters
+
+### Statistical Analysis
+
+- Comprehensive modeling (linear, GLM, mixed effects)
+- ANOVA, t-tests, and non-parametric tests
+- Modern machine learning workflows with tidymodels
+- Cross-validation and model evaluation
+
+### Machine Learning & Advanced Analytics
+
+- Random forest, gradient boosting, and neural networks
+- Cross-validation templates with tidymodels
+- Time series forecasting with Prophet
+- Text mining with tidytext
+
+### Reporting & Reproducibility
+
+- R Markdown report templates
+- Shiny application scaffolding
+- Parallel processing setup
+- Automated EDA templates
+
+## Usage Examples
+
+### Quick Data Pipeline
+
+```r
+# Type "tidyverse: pipe chain" for:
+data |>
+  filter(condition) |>
+  mutate(new_var = transformation) |>
+  group_by(group_var) |>
+  summarize(summary_stats) |>
+  arrange(arrangement)
+```
+
+### Professional Visualization
+
+```r
+# Type "ggplot: scatter with regression" for:
+ggplot(data, aes(x = x, y = y)) +
+  geom_point(aes(color = group), alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_minimal() +
+  labs(title = "Scatterplot with Linear Regression", x = "X Label", y = "Y Label")
+```
+
+### Machine Learning Workflow
+
+```r
+# Type "cross validation" for a complete modeling workflow
+```
+
+## Detailed Snippet List
+
+The collection includes snippets for:
+
+- **Data Wrangling**: filter, select, mutate, arrange, join, pivot, etc.
+- **Visualization**: All ggplot geoms, themes, facets, and customizations
+- **Statistical Tests**: t-tests, ANOVA, chi-square, normality tests
+- **Modeling**: Linear models, GLM, mixed effects, machine learning
+- **Advanced Analytics**: Time series, text mining, spatial data
+- **Functional Programming**: map, walk, reduce, purrr operations
+- **Reporting**: R Markdown templates, Shiny app structures
+- **Performance**: Parallel processing, data.table operations
+
+See [snippets.json](./snippets.json) for the complete list.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-snippet`)
+3. Commit your changes (`git commit -am 'Add some amazing snippet'`)
+4. Push to the branch (`git push origin feature/amazing-snippet`)
+5. Open a Pull Request
+
+## Requirements
+
+- R 4.0+ (optimized for R 4.3+)
+- VS Code with R extension or similar IDE
+- Recommended packages: tidyverse, data.table, ggplot2, tidymodels
+
+## License
+
+This project is licensed under the Beerware License - see the [LICENSE](LICENSE) file for details. If you find these snippets useful, consider buying me a beer if we ever meet!
+
+## Acknowledgments
+
+- The R Core Team for their amazing language
+- The tidyverse team for revolutionizing data science in R
+- The VS Code team for an excellent IDE
+- All contributors to this project
+
+---
+
+_Last updated: April 29, 2025_
